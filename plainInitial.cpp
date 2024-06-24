@@ -45,7 +45,7 @@ int main() {
             }
         }
 
-        double finalTravelTime = calculateTravelTime(prev, {100, 100, 0});
+        double finalTravelTime = calculateTravelTime(prev, {100, 100, 0}) + waitTime; 
         double result = dp[N] + finalTravelTime;
         cout.precision(3);
         cout << fixed << result << endl;
