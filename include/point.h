@@ -9,4 +9,4 @@ struct Point {
     Point(double x, double y, int penalty);
 };
 
-#endif // POINT_H
+#endif 

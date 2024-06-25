@@ -8,4 +8,4 @@ public:
     double solve(const std::vector<Point>& points) const override;
 };
 
-#endif // DIJKSTRA_SOLVER_H
+#endif 

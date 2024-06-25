@@ -4,6 +4,10 @@
 #include <chrono>
 #include "point.h"
 #include "utilities.h"
+#include "solver.h"
+#include "dp_solver.h"
+#include "dijkstra_solver.h"
+
 
 std::vector<std::vector<Point>> read_points_from_file(const std::string& filename) {
     std::ifstream infile(filename);
@@ -40,22 +44,24 @@ TEST(TravelTimeTests, CalculateTravelTime) {
 }
 
 TEST(TravelTimeTests, DynamicProgramming) {
+    DPSolver dpSolver;
     std::vector<std::vector<Point>> pointsList = read_points_from_file("input.txt");
     std::vector<float> gtResults = {90.711, 156.858, 110.711};
     int i = 0;
     for (const auto& points : pointsList) {
-        double result = dynamic_programming(points);
+        double result = dpSolver.solve(points);
         EXPECT_NEAR(result, gtResults[i], 1e-3);
         i++;
     }
 }
 
 TEST(TravelTimeTests, Dijkstra) {
+    DijkstraSolver dijkstraSolver;
     std::vector<std::vector<Point>> pointsList = read_points_from_file("input.txt");
     std::vector<float> gtResults = {90.711, 156.858, 110.711};
     int i = 0;
     for (const auto& points : pointsList) {
-        double result = dijkstra(points);
+        double result = dijkstraSolver.solve(points);
         EXPECT_NEAR(result, gtResults[i], 1e-3);
         i++;
     }

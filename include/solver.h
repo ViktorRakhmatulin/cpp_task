@@ -10,4 +10,4 @@ public:
     virtual double solve(const std::vector<Point>& points) const = 0;
 };
 
-#endif // SOLVER_H
+#endif 

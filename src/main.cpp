@@ -3,12 +3,17 @@
 #include <vector>
 #include "point.h"
 #include "utilities.h"
+#include "solver.h"
+#include "dp_solver.h"
+#include "dijkstra_solver.h"
 #include <limits>
-
 
 int main() {
     int N;
     double result;
+
+    DPSolver dpSolver;
+    DijkstraSolver dijkstraSolver;
 
     while (true) {
         std::cout << "Enter N (0 to exit): ";
@@ -28,8 +33,11 @@ int main() {
             continue; 
         }
 
-        result = dynamic_programming(points);
+        result = dpSolver.solve(points);
         std::cout << std::fixed << std::setprecision(3) << "Shortest travel time (DP): " << result << std::endl;
+
+        result = dijkstraSolver.solve(points);
+        std::cout << std::fixed << std::setprecision(3) << "Shortest travel time (Dijkstra): " << result << std::endl;
     }
 
     return 0;
