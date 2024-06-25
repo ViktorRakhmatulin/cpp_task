@@ -8,4 +8,5 @@ add_executable(test_main
     ${PROJECT_SOURCE_DIR}/src/utilities.cpp
 )
 
+target_link_libraries(test_main gtest gtest_main pthread)
 add_test(NAME test_main COMMAND test_main)
