@@ -21,6 +21,26 @@ double calculate_travel_time(const Point& a, const Point& b, double speed = 2.0)
     return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2)) / speed;
 }
 
+double dynamic_programming(const vector<Point>& points) {
+    int n = points.size();
+    vector<double> dp(n, numeric_limits<double>::infinity());
+    dp[0] = 0.0;
+
+    for (int i = 0; i < n; ++i) {
+        for (int j = i + 1; j < n; ++j) {
+            double travel_time = calculate_travel_time(points[i], points[j]);
+            double wait_time = 10.0;
+            int penalties = 0;
+            for (int k = i + 1; k < j; ++k) {
+                penalties += points[k].penalty;
+            }
+            dp[j] = min(dp[j], dp[i] + travel_time + wait_time + penalties);
+        }
+    }
+
+    return dp[n - 1];
+}
+
 double dijkstra(const vector<Point>& points) {
     int n = points.size();
     vector<vector<pair<double, int>>> graph(n);
@@ -110,7 +130,11 @@ int main() {
         points.emplace_back(100.0, 100.0, 0);
 
         result = dijkstra(points);
+        
         cout << fixed << setprecision(3) << "Shortest travel time: " << result << endl;
+        result = dynamic_programming(points);
+        cout << fixed << setprecision(3) << "Shortest travel time: " << result << endl;
+        
     }
 
     // Generate random points for N = 1000
