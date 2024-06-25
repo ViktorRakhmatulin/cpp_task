@@ -23,27 +23,26 @@ This project calculates the optimal travel time between points, taking into acco
 - CMake
 
 ## Project Structure
-
+```
 cpp_project/
 ├── include/
 │   ├── point.h
 │   ├── utilities.h
 │   ├── solver.h
 │   ├── dp_solver.h
-│   ├── dijkstra_solver.h
+│   └── dijkstra_solver.h
 ├── src/
 │   ├── main.cpp
 │   ├── point.cpp
 │   ├── utilities.cpp
 │   ├── dp_solver.cpp
-│   ├── dijkstra_solver.cpp
+│   └── dijkstra_solver.cpp
 ├── tests/
 │   ├── test_main.cpp
-│   ├── CMakeLists.txt
+│   └── CMakeLists.txt
 ├── CMakeLists.txt
 └── input.txt
-
-
+```
 ### Building
 
 1. **Clone the repository:**
