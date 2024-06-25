@@ -49,22 +49,27 @@ cpp_project/
 
 
 2. **Create and navigate to the build directory:**
+    ```
     mkdir build
     cd build
+    ```
 
 3. **Generate build files with CMake:**
+    ```
     cmake ..
-
+    ```
 
 4. **Compile the project:**
+    ```
     make
-
+    ```
 ### Running
 
 1. **Execute the binary:**
+    ```
     ./main
     ./tests/test_main
-
+    ```
 
 2. **Input:**
    - Enter the number of points `N` (excluding start/end points).
