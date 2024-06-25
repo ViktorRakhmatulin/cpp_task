@@ -9,6 +9,8 @@ add_executable(main
     src/main.cpp
     src/point.cpp
     src/utilities.cpp
+    src/dp_solver.cpp
+    src/dijkstra_solver.cpp
 )
 
 add_subdirectory(tests)

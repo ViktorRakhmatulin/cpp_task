@@ -6,6 +6,8 @@ add_executable(test_main
     test_main.cpp
     ${PROJECT_SOURCE_DIR}/src/point.cpp
     ${PROJECT_SOURCE_DIR}/src/utilities.cpp
+    ${PROJECT_SOURCE_DIR}/src/dp_solver.cpp
+    ${PROJECT_SOURCE_DIR}/src/dijkstra_solver.cpp
 )
 
 target_link_libraries(test_main gtest gtest_main pthread)
