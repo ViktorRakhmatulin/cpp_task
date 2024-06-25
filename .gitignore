@@ -8,6 +8,7 @@ build/
 !.vscode/settings.json
 
 CMakeFiles/
+
 CMakeCache.txt
 cmake_install.cmake
 CMakeSettings.json
@@ -43,3 +44,11 @@ gmon.out
 
 *.gcda
 *.gcno
+Makefile
+Тестовое задание planner.pdf
+tests/test_main
+python_ref_scripts/dp.py
+python_ref_scripts/dijkstra.py
+python_ref_scripts/dijkstra_test.py
+main
+CMakePresets.json
