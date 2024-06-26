@@ -9,17 +9,30 @@ This project calculates the optimal travel time between points, taking into acco
 
 ## Files
 
-- **main.cpp**: Entry point, reads input and calculates travel time using DP.
-- **point.h**: Defines the `Point` structure.
-- **point.cpp**: Implements the `Point` structure.
-- **utilities.h**: Declares utility functions.
-- **utilities.cpp**: Implements utility functions.
-- **test_main.cpp**: Contains tests for the implemented functions.
-- **CMakeLists.txt**: Configuration file for CMake.
+**main.cpp**:
+- Reads input data, calculates travel time using dynamic programming (DP) algorithm.
+
+**point.h**:
+- Defines the `Point` structure used throughout the project.
+
+**utilities.h**:
+- Declares utility functions used in the project.
+
+**solver.h**:
+- Defines an abstract class for solving problems.
+
+**dp_solver.cpp**:
+- Implements dynamic programming algorithm for solving specific problems.
+
+**dijkstra_solver.cpp**:
+- Implements Dijkstra's algorithm for solving specific problems.
+
+**input.txt**:
+- Contains sample input data for testing the program.
 
 ## Dependencies
 
-- C++ compiler supporting C++11 or later
+- C++ compiler supporting C++17 or later
 - CMake
 
 ## Project Structure
@@ -33,7 +46,6 @@ cpp_project/
 │   └── dijkstra_solver.h
 ├── src/
 │   ├── main.cpp
-│   ├── point.cpp
 │   ├── utilities.cpp
 │   ├── dp_solver.cpp
 │   └── dijkstra_solver.cpp
