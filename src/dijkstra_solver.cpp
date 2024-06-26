@@ -10,17 +10,19 @@ double DijkstraSolver::solve(const std::vector<Point>& points) const {
 
     auto buildGraph = [&points, &graph]() {
         int n = points.size();
+        const int waitTime = 10;
+
         for (int i = 0; i < n; ++i) {
             for (int j = i + 1; j < n; ++j) {
                 double travel_time = calculate_travel_time(points[i], points[j]);
                 if (j == i + 1) {
-                    graph[i].push_back({travel_time + 10, j});
+                    graph[i].push_back({travel_time + waitTime, j});
                 } else {
                     int penalties = 0;
                     for (int k = i + 1; k < j; ++k) {
                         penalties += points[k].penalty;
                     }
-                    graph[i].push_back({travel_time + 10 + penalties, j});
+                    graph[i].push_back({travel_time + waitTime + penalties, j});
                 }
             }
         }
@@ -30,7 +32,9 @@ double DijkstraSolver::solve(const std::vector<Point>& points) const {
 
     std::vector<double> dist(n, std::numeric_limits<double>::infinity());
     dist[0] = 0.0;
+
     std::priority_queue<std::pair<double, int>, std::vector<std::pair<double, int>>, std::greater<std::pair<double, int>>> pq;
+
     pq.push({0.0, 0});
 
     while (!pq.empty()) {

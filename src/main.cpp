@@ -13,7 +13,7 @@ int main() {
     double result;
 
     DPSolver dpSolver;
-    DijkstraSolver dijkstraSolver;
+    // DijkstraSolver dijkstraSolver;
 
     while (true) {
         std::cout << "Enter N (0 to exit): ";
@@ -36,8 +36,8 @@ int main() {
         result = dpSolver.solve(points);
         std::cout << std::fixed << std::setprecision(3) << "Shortest travel time (DP): " << result << std::endl;
 
-        result = dijkstraSolver.solve(points);
-        std::cout << std::fixed << std::setprecision(3) << "Shortest travel time (Dijkstra): " << result << std::endl;
+        // result = dijkstraSolver.solve(points);
+        // std::cout << std::fixed << std::setprecision(3) << "Shortest travel time (Dijkstra): " << result << std::endl;
     }
 
     return 0;

@@ -32,7 +32,7 @@ This project calculates the optimal travel time between points, taking into acco
 
 ## Dependencies
 
-- C++ compiler supporting C++17 or later
+- gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
 - CMake
 
 ## Project Structure
@@ -92,7 +92,8 @@ cpp_project/
    - Shortest travel time using dynamic programming.
 
 **Further Improvements:**
+- replace custom implementation of dijkstra and graph with GTSAM and g2o libs 
 - txt to json to enhance readability
 - CI/CD pipeline implementation
-- Describe deb package  
+- Deb package generation
     
