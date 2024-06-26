@@ -9,7 +9,7 @@
 #include <limits>
 
 int main() {
-    int N;
+    int n;
     double result;
 
     DPSolver dpSolver;
@@ -17,19 +17,19 @@ int main() {
 
     while (true) {
         std::cout << "Enter N (0 to exit): ";
-        if (!(std::cin >> N)) {
+        if (!(std::cin >> n)) {
             std::cerr << "Error: Invalid input for N. Please enter a numeric value.\n";
             std::cin.clear(); 
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             continue; 
         }
 
-        if (N == 0) {
+        if (n == 0) {
             break; 
         }
-
-        std::vector<Point> points = read_points(N);
-        if (points.size() != N + 2) {
+        int totalPoints = n + 2;
+        std::vector<Point> points = read_points(n);
+        if (points.size() != totalPoints) {
             continue; 
         }
 

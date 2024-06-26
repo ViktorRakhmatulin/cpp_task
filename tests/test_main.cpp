@@ -7,7 +7,24 @@
 #include "solver.h"
 #include "dp_solver.h"
 #include "dijkstra_solver.h"
+#include <random>
 
+std::vector<Point> generate_random_points(int n) {
+    std::vector<Point> points;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<double> dis(0.0, 100.0);
+    std::uniform_int_distribution<int> penalty_dis(1, 10);
+
+    for (int i = 1; i <= n; ++i) {
+        double x = dis(gen);
+        double y = dis(gen);
+        int penalty = penalty_dis(gen);
+        points.emplace_back(x, y, penalty);
+    }
+    points.emplace_back(100.0, 100.0, 0);
+    return points;
+}
 
 std::vector<std::vector<Point>> read_points_from_file(const std::string& filename) {
     std::ifstream infile(filename);
