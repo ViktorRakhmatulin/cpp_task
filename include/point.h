@@ -6,7 +6,7 @@ struct Point {
     double y;
     int penalty;
 
-    Point(double x, double y, int penalty);
+    Point(double x, double y, int penalty) : x(x), y(y), penalty(penalty) {}
 };
 
-#endif // POINT_H
+#endif 

@@ -9,43 +9,90 @@ This project calculates the optimal travel time between points, taking into acco
 
 ## Files
 
-- **main.cpp**: Entry point, reads input and calculates travel time using DP.
-- **point.h**: Defines the `Point` structure.
-- **point.cpp**: Implements the `Point` structure.
-- **utilities.h**: Declares utility functions.
-- **utilities.cpp**: Implements utility functions.
-- **test_main.cpp**: Contains tests for the implemented functions.
-- **CMakeLists.txt**: Configuration file for CMake.
+**main.cpp**:
+- Reads input data, calculates travel time using dynamic programming (DP) algorithm.
+
+**point.h**:
+- Defines the `Point` structure used throughout the project.
+
+**utilities.h**:
+- Declares utility functions used in the project.
+
+**solver.h**:
+- Defines an abstract class for solving problems.
+
+**config.h**:
+- Defines a project configuration class.
+
+**solver_factory.h**:
+- Defines a factory to create appropriate solver instance.
+
+**dp_solver.cpp**:
+- Implements dynamic programming algorithm for solving specific problems.
+
+**dijkstra_solver.cpp**:
+- Implements Dijkstra's algorithm for solving specific problems.
+
+**input.txt**:
+- Contains sample input data for testing the program.
+
+**config.json**:
+- Specifies solver for the problem.
 
 ## Dependencies
 
-- C++ compiler supporting C++11 or later
+- gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
 - CMake
 
-## Usage
-
+## Project Structure
+```
+cpp_project/
+├── include/
+│   ├── point.h
+│   ├── utilities.h
+│   ├── solver.h
+│   ├── dp_solver.h
+│   └── dijkstra_solver.h
+│   └── config.h
+│   └── solver_factory.h
+├── src/
+│   ├── main.cpp
+│   ├── utilities.cpp
+│   ├── dp_solver.cpp
+│   └── dijkstra_solver.cpp
+├── tests/
+│   ├── test_main.cpp
+│   └── CMakeLists.txt
+├── CMakeLists.txt
+└── input.txt
+```
 ### Building
 
 1. **Clone the repository:**
 
 
 2. **Create and navigate to the build directory:**
+    ```
     mkdir build
     cd build
+    ```
 
 3. **Generate build files with CMake:**
+    ```
     cmake ..
-
+    ```
 
 4. **Compile the project:**
+    ```
     make
-
+    ```
 ### Running
 
 1. **Execute the binary:**
+    ```
     ./main
     ./tests/test_main
-
+    ```
 
 2. **Input:**
    - Enter the number of points `N` (excluding start/end points).
@@ -54,3 +101,10 @@ This project calculates the optimal travel time between points, taking into acco
 
 3. **Output:**
    - Shortest travel time using dynamic programming.
+
+**Further Improvements:**
+- Replace custom implementations with GTSAM and g2o libs 
+- Extend the config file (waiting time for instance)
+- CI/CD pipeline implementation + static code anlyzers like SonarQube, CppCheck
+- Deb package generation
+    
