@@ -104,7 +104,7 @@ cpp_project/
 
 **Further Improvements:**
 - Replace custom implementations with GTSAM and g2o libs 
-- Extend the config file
+- Extend the config file (waiting time for instance)
 - CI/CD pipeline implementation
 - Deb package generation
     
