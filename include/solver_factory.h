@@ -9,7 +9,7 @@
 
 class SolverFactory {
 public:
-    static std::unique_ptr<Solver> createSolver(const std::string& solverType) {
+    static std::unique_ptr<Solver> create_solver(const std::string& solverType) {
         if (solverType == "dp") {
             return std::make_unique<DPSolver>();
         } else if (solverType == "dijkstra") {

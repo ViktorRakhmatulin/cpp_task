@@ -21,7 +21,7 @@ int main()
     try
     {
         std::string solver_type = Config::read_solver_from_config("config.json");
-        solver = SolverFactory::createSolver(solver_type);
+        solver = SolverFactory::create_solver(solver_type);
     }
     catch (const std::exception &e)
     {
