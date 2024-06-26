@@ -21,6 +21,12 @@ This project calculates the optimal travel time between points, taking into acco
 **solver.h**:
 - Defines an abstract class for solving problems.
 
+**config.h**:
+- Defines a project configuration class.
+
+**solver_factory.h**:
+- Defines a factory to create appropriate solver instance.
+
 **dp_solver.cpp**:
 - Implements dynamic programming algorithm for solving specific problems.
 
@@ -29,6 +35,9 @@ This project calculates the optimal travel time between points, taking into acco
 
 **input.txt**:
 - Contains sample input data for testing the program.
+
+**config.json**:
+- Specifies solver for the problem.
 
 ## Dependencies
 
@@ -44,6 +53,8 @@ cpp_project/
 │   ├── solver.h
 │   ├── dp_solver.h
 │   └── dijkstra_solver.h
+│   └── config.h
+│   └── solver_factory.h
 ├── src/
 │   ├── main.cpp
 │   ├── utilities.cpp
@@ -92,8 +103,8 @@ cpp_project/
    - Shortest travel time using dynamic programming.
 
 **Further Improvements:**
-- replace custom implementation of dijkstra and graph with GTSAM and g2o libs 
-- txt to json to enhance readability
+- Replace custom implementations with GTSAM and g2o libs 
+- Extend the config file
 - CI/CD pipeline implementation
 - Deb package generation
     

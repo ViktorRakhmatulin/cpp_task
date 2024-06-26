@@ -6,6 +6,7 @@
 class DPSolver : public Solver {
 public:
     double solve(const std::vector<Point>& points) const override;
+    std::string solver_description() const override { return "DP Solver"; } 
 };
 
 #endif 
