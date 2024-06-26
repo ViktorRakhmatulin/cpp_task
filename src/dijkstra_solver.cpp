@@ -8,20 +8,25 @@ double DijkstraSolver::solve(const std::vector<Point>& points) const {
     int n = points.size();
     std::vector<std::vector<std::pair<double, int>>> graph(n);
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = i + 1; j < n; ++j) {
-            double travel_time = calculate_travel_time(points[i], points[j]);
-            if (j == i + 1) {
-                graph[i].push_back({travel_time + 10, j});
-            } else {
-                int penalties = 0;
-                for (int k = i + 1; k < j; ++k) {
-                    penalties += points[k].penalty;
+    auto buildGraph = [&points, &graph]() {
+        int n = points.size();
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                double travel_time = calculate_travel_time(points[i], points[j]);
+                if (j == i + 1) {
+                    graph[i].push_back({travel_time + 10, j});
+                } else {
+                    int penalties = 0;
+                    for (int k = i + 1; k < j; ++k) {
+                        penalties += points[k].penalty;
+                    }
+                    graph[i].push_back({travel_time + 10 + penalties, j});
                 }
-                graph[i].push_back({travel_time + 10 + penalties, j});
             }
         }
-    }
+    };
+    
+    buildGraph();
 
     std::vector<double> dist(n, std::numeric_limits<double>::infinity());
     dist[0] = 0.0;
